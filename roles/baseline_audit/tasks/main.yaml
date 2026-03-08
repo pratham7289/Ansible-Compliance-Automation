@@ -1,0 +1,15 @@
+- name: Collect list of installed security packages
+  ansible.builtin.shell: dpkg -l | grep -E 'openssh|ufw|sudo|curl'
+  register: installed_packages
+
+- name: Collect active users
+  ansible.builtin.shell: awk -F: '{print $1}' /etc/passwd
+  register: active_users
+
+- name: Collect open ports
+  ansible.builtin.shell: ss -tuln
+  register: open_ports
+
+- name: Collect kernel version
+  ansible.builtin.command: uname -r
+  register: kernel_version
