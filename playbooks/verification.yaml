@@ -1,0 +1,7 @@
+- name: Compliance Verification
+  hosts: tag_Project_Compliance-Alpha
+  gather_facts: yes
+  become: yes
+
+  roles:
+    - compliance_report
