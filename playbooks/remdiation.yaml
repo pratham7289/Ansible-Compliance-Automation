@@ -1,0 +1,7 @@
+- name: Security Hardening & Patch Management
+  hosts: tag_Project_Compliance-Alpha
+  become: yes
+
+  roles:
+    - patch_management
+    - security_hardening
