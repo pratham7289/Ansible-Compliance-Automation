@@ -161,11 +161,3 @@ The system generates a detailed summary for every managed host:
 *   **Secure Vaults**: Use `ansible-vault` to encrypt sensitive variables and SSH keys.
 
 ---
-
-## ⚖️ License & Contact
-
-Distributed under the **MIT License**. See `LICENSE` for more information.
-
-**AlphaSecure Systems**  
-📧 [contact@alphasecure.systems](#) | 🌐 [www.alphasecure.systems](#)  
-*Copyright © 2026 AlphaSecure Systems.*
