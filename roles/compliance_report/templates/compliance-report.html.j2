@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Compliance Report</title>
+</head>
+<body>
+ <h1>Compliance Report</h1>
+ {% for host, data in compliance_data.items() %}
+   <h2>{{ host }}</h2>
+   <ul>
+     <li>Kernel Version: {{ data.kernel_version }}</li>
+     <li>Users: {{ data.users }}</li>
+     <li>Open Ports: {{ data.open_ports }}</li>
+     <li>Security Packages: {{ data.security_packages }}</li>
+     <li>Compliance Status: {{ data.compliance_status }}</li>
+   </ul>
+ {% endfor %}
+</body>
+</html>
