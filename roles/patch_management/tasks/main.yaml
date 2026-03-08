@@ -1,0 +1,12 @@
+- name: Update security packages
+  ansible.builtin.apt:
+    upgrade: dist
+    update_cache: yes
+    cache_valid_time: 3600
+  register: upgrade_result
+  ignore_errors: yes
+
+- name: Notify if upgrade fails
+  ansible.builtin.debug:
+    msg: "Upgrade failed on {{ inventory_hostname }}"
+  when: upgrade_result is failed
