@@ -1,0 +1,25 @@
+- name: Aggregate compliance data
+  set_fact:
+    compliance_data: >-
+      {{
+        compliance_data | default({}) |
+        combine({
+          inventory_hostname: {
+            "kernel_version": ansible_kernel,
+            "users": ansible_users,
+            "open_ports": ansible_ports,
+            "security_packages": installed_packages.stdout_lines,
+            "compliance_status": "OK" if upgrade_result is not changed else "CHANGED"
+          }
+        })
+      }}
+
+- name: Generate Markdown report
+  ansible.builtin.template:
+    src: compliance-report.j2
+    dest: ../../reports/compliance-report.md
+
+- name: Generate HTML report
+  ansible.builtin.template:
+    src: compliance-report.html.j2
+    dest: ../../reports/compliance-report.html
