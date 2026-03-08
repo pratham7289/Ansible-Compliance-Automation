@@ -1,0 +1,11 @@
+# Compliance Report
+
+{% for host, data in compliance_data.items() %}
+## {{ host }}
+- Kernel Version: {{ data.kernel_version }}
+- Users: {{ data.users }}
+- Open Ports: {{ data.open_ports }}
+- Security Packages: {{ data.security_packages }}
+- Compliance Status: {{ data.compliance_status }}
+
+{% endfor %}
